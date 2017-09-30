@@ -1,0 +1,26 @@
+# Javascript Node CircleCI 2.0 configuration file
+#
+# Check https://circleci.com/docs/2.0/language-javascript/ for more details
+#
+version: 2
+jobs:
+  build:
+    docker:
+      - image: circleci/node:8.6
+
+    working_directory: ~/repo
+
+    parallelism: 4
+
+    steps:
+      - checkout
+
+      - run: yarn install
+
+      - run:
+          name: Type-check
+          command: yarn run type-check
+
+      - run:
+          name: Test
+          command: NODE_ENV=test yarn run test --coverage
