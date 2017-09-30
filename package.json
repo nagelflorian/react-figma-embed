@@ -3,13 +3,11 @@
   "version": "1.0.0",
   "description": "React component to render figma live embeds",
   "main": "lib/index.js",
-  "files": [
-    "dist",
-    "lib"
-  ],
+  "files": ["dist", "lib"],
   "scripts": {
     "build:umd": "webpack --devtool source-map --config webpack.build.js",
-    "build:umd:min": "cross-env MINIFY=1 webpack --devtool source-map --config webpack.build.js",
+    "build:umd:min":
+      "cross-env MINIFY=1 webpack --devtool source-map --config webpack.build.js",
     "build": "babel src/ --out-dir lib/ --ignore __tests__,__mocks__",
     "bundle": "mkdir -p dist && npm run build:umd && npm run build:umd:min",
     "test": "jest",
@@ -25,16 +23,19 @@
   ],
   "author": "Florian Nagel <hi@floriannagel.xyz> (https://floriannagel.xyz/)",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nagelflorian/react-figma-embed.git"
+  },
+  "bugs": {
+    "url": "https://github.com/nagelflorian/react-figma-embed/issues"
+  },
+  "homepage": "https://github.com/nagelflorian/react-figma-embed#readme",
   "lint-staged": {
-    "*.js": [
-      "yarn run prettier",
-      "git add"
-    ]
+    "*.js": ["yarn run prettier", "git add"]
   },
   "jest": {
-    "modulePathIgnorePatterns": [
-      "<rootDir>/example/"
-    ]
+    "modulePathIgnorePatterns": ["<rootDir>/example/"]
   },
   "peerDependencies": {
     "react": "^0.14.7 || ^15.0.0 || ^16.0.0",
