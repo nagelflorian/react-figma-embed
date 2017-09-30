@@ -1,4 +1,4 @@
-# react-figma-embed
+# react-figma-embed [![CircleCI](https://circleci.com/gh/nagelflorian/react-figma-embed/tree/master.svg?style=svg)](https://circleci.com/gh/nagelflorian/react-figma-embed/tree/master)
 
 React component to render [Figma live embeds](https://www.figma.com/platform).
 
