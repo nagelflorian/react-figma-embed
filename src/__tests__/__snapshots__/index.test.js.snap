@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FigmaEmbed renders the iframe correctly 1`] = `
+<iframe
+  allowFullScreen={true}
+  height="450"
+  src="https://www.figma.com/embed?embed_host=astra&url=https://www.figma.com/file/LKQ4FJ4bTnCSjedbRpk931/Sample-File"
+  width="800"
+/>
+`;
