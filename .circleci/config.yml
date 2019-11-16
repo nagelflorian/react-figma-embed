@@ -6,21 +6,26 @@ version: 2
 jobs:
   build:
     docker:
-      - image: circleci/node:8.6
-
+      - image: circleci/node:12
     working_directory: ~/repo
-
     parallelism: 4
-
     steps:
       - checkout
-
-      - run: yarn install
-
+      - restore_cache:
+          name: Restore Yarn Package Cache
+          keys:
+            - yarn-packages-{{ checksum "yarn.lock" }}
+      - run:
+          name: Install Dependencies
+          command: yarn install --frozen-lockfile
+      - save_cache:
+          name: Save Yarn Package Cache
+          key: yarn-packages-{{ checksum "yarn.lock" }}
+          paths:
+            - ~/.cache/yarn
       - run:
           name: Type-check
           command: yarn run type-check
-
       - run:
           name: Test
           command: NODE_ENV=test yarn run test --coverage
