@@ -1,20 +1,24 @@
-var path = require('path');
-var webpack = require('webpack');
-var BASE_DIR = process.cwd();
-var COMPONENT_FILE = 'react-figma-embed';
-var COMPONENT_NAME = 'FigmaEmbed';
-var plugins = [];
+const path = require('path');
+const BASE_DIR = process.cwd();
+const COMPONENT_NAME = 'FigmaEmbed';
+let COMPONENT_FILE = 'react-figma-embed';
+
+const config = {
+  mode: 'production',
+  optimization: {},
+};
 
 function getPackageMain() {
   return require(path.resolve(BASE_DIR, 'package.json')).main;
 }
 
 if (process.env.MINIFY) {
-  plugins.push(new webpack.optimize.UglifyJsPlugin());
+  config.optimization.minimize = true;
   COMPONENT_FILE += '.min';
 }
 
 module.exports = {
+  ...config,
   entry: path.resolve(BASE_DIR, getPackageMain()),
   output: {
     filename: COMPONENT_FILE + '.js',
@@ -27,13 +31,18 @@ module.exports = {
     'react-dom': 'ReactDOM',
   },
   module: {
-    loaders: [
+    rules: [
       {
         test: /\.js$/,
-        exclude: /node_modules/,
-        loader: 'babel-loader',
+        exclude: /(node_modules|bower_components)/,
+        use: {
+          loader: 'babel-loader',
+          options: {
+            presets: ['@babel/preset-env'],
+          },
+        },
       },
     ],
   },
-  plugins: plugins,
+  plugins: [],
 };
