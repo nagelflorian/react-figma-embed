@@ -64,6 +64,6 @@
     "react": "^16.12.0",
     "react-test-renderer": "^16.12.0",
     "webpack": "^3.6.0",
-    "webpack-dev-server": "^2.9.1"
+    "webpack-dev-server": "^3.1.11"
   }
 }
