@@ -4,7 +4,7 @@ React component to render [Figma live embeds](https://www.figma.com/platform).
 
 ## Install
 
-```
+```console
 npm install react-figma-embed --save
 ```
 
@@ -17,8 +17,9 @@ import FigmaEmbed from 'react-figma-embed';
 
 class App extends Component {
   render() {
-    return <FigmaEmbed
-      url="https://www.figma.com/file/LKQ4FJ4bTnCSjedbRpk931/Sample-File" />;
+    return (
+      <FigmaEmbed url="https://www.figma.com/file/LKQ4FJ4bTnCSjedbRpk931/Sample-File" />
+    );
   }
 }
 
