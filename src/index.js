@@ -2,7 +2,7 @@
 
 import * as React from 'react';
 
-type Props = {
+type Props = Object & {
   url: string,
 };
 
