@@ -3,11 +3,13 @@
   "version": "1.0.0",
   "description": "React component to render figma live embeds",
   "main": "lib/index.js",
-  "files": ["dist", "lib"],
+  "files": [
+    "dist",
+    "lib"
+  ],
   "scripts": {
     "build:umd": "webpack --devtool source-map --config webpack.build.js",
-    "build:umd:min":
-      "cross-env MINIFY=1 webpack --devtool source-map --config webpack.build.js",
+    "build:umd:min": "cross-env MINIFY=1 webpack --devtool source-map --config webpack.build.js",
     "build": "babel src/ --out-dir lib/ --ignore __tests__,__mocks__",
     "bundle": "mkdir -p dist && npm run build:umd && npm run build:umd:min",
     "test": "jest",
@@ -32,10 +34,15 @@
   },
   "homepage": "https://github.com/nagelflorian/react-figma-embed#readme",
   "lint-staged": {
-    "*.js": ["yarn run prettier", "git add"]
+    "*.js": [
+      "yarn run prettier",
+      "git add"
+    ]
   },
   "jest": {
-    "modulePathIgnorePatterns": ["<rootDir>/example/"]
+    "modulePathIgnorePatterns": [
+      "<rootDir>/example/"
+    ]
   },
   "peerDependencies": {
     "react": "^0.14.7 || ^15.0.0 || ^16.0.0",
@@ -51,7 +58,7 @@
     "cross-env": "^5.0.5",
     "flow-bin": "^0.56.0",
     "husky": "^0.14.3",
-    "jest": "^21.2.1",
+    "jest": "^24.9.0",
     "lint-staged": "^4.2.3",
     "prettier": "^1.7.2",
     "react": "^16.0.0",
