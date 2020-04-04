@@ -2,11 +2,11 @@
 #
 # Check https://circleci.com/docs/2.0/language-javascript/ for more details
 #
-version: 2
+version: 2.1
 jobs:
   build:
     docker:
-      - image: circleci/node:12
+      - image: circleci/node:lts
     working_directory: ~/repo
     parallelism: 4
     steps:
@@ -28,7 +28,7 @@ jobs:
           command: yarn run type-check
       - run:
           name: Test
-          command: NODE_ENV=test yarn run test --coverage
+          command: NODE_ENV=test yarn run test --ci --coverage
       - run:
           name: Build code
           command: npm run build
