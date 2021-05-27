@@ -29,6 +29,8 @@ jobs:
       - run:
           name: Test
           command: yarn run test --ci --coverage --reporters=default --reporters=jest-junit
+          environment:
+            JEST_JUNIT_OUTPUT_DIR: ./reports/junit/
       - run:
           name: Setup Code Climate test-reporter
           command: |
@@ -43,3 +45,7 @@ jobs:
       - run:
           name: Bundle code
           command: npm run bundle
+      - store_test_results:
+          path: ./reports/junit/
+      - store_artifacts:
+          path: ./reports/junit/
